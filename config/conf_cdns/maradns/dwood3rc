@@ -1,0 +1,107 @@
+# This is an example deadwood rc file 
+# Note that comments are started by the hash symbol
+
+bind_address="172.20.4.1" # IP we bind to
+
+# The following line is disabled by being commented out
+#bind_address="::1" # We have optional IPv6 support
+
+chroot_dir = "/etc/deadwood/" # Directory we run program from (not used in Win32)
+
+# The following upstream DNS servers are Google's public DNS servers.
+# For more information, see https://code.google.com/speed/public-dns/
+#
+# These IPs can be changed to the IPs of any recursive DNS servers that
+# can be reached from the computer running Deadwood.
+#
+# These are commented out; if upstream_servers is not set, Deadwood will
+# use QUAD9 recursive DNS server
+#upstream_servers = {}
+#upstream_servers["."]="8.8.8.8, 8.8.4.4" # Servers we connect to
+
+# It is also possible to use ICANN root servers, as follows
+root_servers = {}
+# ICANN DNS root servers 
+root_servers["."]="198.41.0.4, 199.9.14.201, 192.33.4.12, 199.7.91.13,"
+root_servers["."]+="192.203.230.10, 192.5.5.241, 192.112.36.4, "
+root_servers["."]+="198.97.190.53, 192.36.148.17, 192.58.128.30, "
+root_servers["."]+="193.0.14.129, 199.7.83.42, 202.12.27.33"
+
+recursive_acl = "0.0.0.0/0" # Who is allowed to use the cache
+
+maxprocs = 2048 # Maximum number of pending requests
+handle_overload = 1 # Send SERVER FAIL when overloaded
+
+maradns_uid = 99 # UID Deadwood runs as
+maradns_gid = 99 # GID Deadwood runs as
+
+maximum_cache_elements = 60000
+
+# If you want to read and write the cache from disk, make sure chroot_dir 
+# above is readable and writable by the maradns_uid/gid above, and 
+# uncomment the following line
+#cache_file = "cache/dw_cache"
+
+# The following line tells deadwood to fetch an expired record if it's 
+# impossible to connect to any nameservers
+resurrections = 1
+
+# By default, for security reasons, Deadwood does not allow IPs in the
+# 192.168.x.x, 172.[16-31].x.x, 10.x.x.x, 127.x.x.x, 169.254.x.x,
+# 224.x.x.x, or 0.0.x.x range.  If using Deadwood to resolve names
+# on an internal network, uncomment the following line:
+filter_rfc1918 = 0
+
+upstream_servers = {}
+upstream_servers["test0.qifanzhang.com"] = "172.22.201.0"
+upstream_servers["test1.qifanzhang.com"] = "172.22.201.1"
+upstream_servers["test2.qifanzhang.com"] = "172.22.201.2"
+upstream_servers["test3.qifanzhang.com"] = "172.22.201.3"
+upstream_servers["test4.qifanzhang.com"] = "172.22.201.4"
+upstream_servers["test5.qifanzhang.com"] = "172.22.201.5"
+upstream_servers["test6.qifanzhang.com"] = "172.22.201.6"
+upstream_servers["test7.qifanzhang.com"] = "172.22.201.7"
+upstream_servers["test8.qifanzhang.com"] = "172.22.201.8"
+upstream_servers["test9.qifanzhang.com"] = "172.22.201.9"
+upstream_servers["test10.qifanzhang.com"] = "172.22.201.10"
+upstream_servers["test11.qifanzhang.com"] = "172.22.201.11"
+upstream_servers["test12.qifanzhang.com"] = "172.22.201.12"
+upstream_servers["test13.qifanzhang.com"] = "172.22.201.13"
+upstream_servers["test14.qifanzhang.com"] = "172.22.201.14"
+upstream_servers["test15.qifanzhang.com"] = "172.22.201.15"
+upstream_servers["test16.qifanzhang.com"] = "172.22.201.16"
+upstream_servers["test17.qifanzhang.com"] = "172.22.201.17"
+upstream_servers["test18.qifanzhang.com"] = "172.22.201.18"
+upstream_servers["test19.qifanzhang.com"] = "172.22.201.19"
+upstream_servers["test20.qifanzhang.com"] = "172.22.201.20"
+upstream_servers["test21.qifanzhang.com"] = "172.22.201.21"
+upstream_servers["test22.qifanzhang.com"] = "172.22.201.22"
+upstream_servers["test23.qifanzhang.com"] = "172.22.201.23"
+upstream_servers["test24.qifanzhang.com"] = "172.22.201.24"
+upstream_servers["test25.qifanzhang.com"] = "172.22.201.25"
+upstream_servers["test26.qifanzhang.com"] = "172.22.201.26"
+upstream_servers["test27.qifanzhang.com"] = "172.22.201.27"
+upstream_servers["test28.qifanzhang.com"] = "172.22.201.28"
+upstream_servers["test29.qifanzhang.com"] = "172.22.201.29"
+upstream_servers["test30.qifanzhang.com"] = "172.22.201.30"
+upstream_servers["test31.qifanzhang.com"] = "172.22.201.31"
+upstream_servers["test32.qifanzhang.com"] = "172.22.201.32"
+upstream_servers["test33.qifanzhang.com"] = "172.22.201.33"
+upstream_servers["test34.qifanzhang.com"] = "172.22.201.34"
+upstream_servers["test35.qifanzhang.com"] = "172.22.201.35"
+upstream_servers["test36.qifanzhang.com"] = "172.22.201.36"
+upstream_servers["test37.qifanzhang.com"] = "172.22.201.37"
+upstream_servers["test38.qifanzhang.com"] = "172.22.201.38"
+upstream_servers["test39.qifanzhang.com"] = "172.22.201.39"
+upstream_servers["test40.qifanzhang.com"] = "172.22.201.40"
+upstream_servers["test41.qifanzhang.com"] = "172.22.201.41"
+upstream_servers["test42.qifanzhang.com"] = "172.22.201.42"
+upstream_servers["test43.qifanzhang.com"] = "172.22.201.43"
+upstream_servers["test44.qifanzhang.com"] = "172.22.201.44"
+upstream_servers["test45.qifanzhang.com"] = "172.22.201.45"
+upstream_servers["test46.qifanzhang.com"] = "172.22.201.46"
+upstream_servers["test47.qifanzhang.com"] = "172.22.201.47"
+upstream_servers["test48.qifanzhang.com"] = "172.22.201.48"
+upstream_servers["test49.qifanzhang.com"] = "172.22.201.49"
+
+verbose_level = 300

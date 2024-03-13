@@ -1,0 +1,36 @@
+logging {
+    channel bind_log {
+        file "/var/cache/bind/bind.log" versions 10 size 20m;
+        severity info;
+        print-category yes;
+        print-severity yes;
+        print-time yes;
+    };
+  
+        category client { bind_log; };
+        category queries { bind_log; };
+        category query-errors { bind_log; };
+        category dispatch { bind_log; };
+        category network { bind_log; };
+        category general { bind_log; };
+        category zoneload { bind_log; };
+        category resolver { bind_log; };
+        category cname { bind_log; };
+        category delegation-only { bind_log; };
+        category lame-servers { bind_log; };
+        category edns-disabled { bind_log; };
+        category notify { bind_log; };
+        category xfer-in { bind_log; };
+        category xfer-out { bind_log; };
+        category update { bind_log; };
+        category update-security { bind_log; };
+        category security { bind_log; };
+        category rate-limit { bind_log; };
+        category spill { bind_log; };
+        category database { bind_log; };
+        category rpz { bind_log; };
+        category dnstap { bind_log; };
+        category trust-anchor-telemetry { bind_log; };
+        category default { bind_log; };
+        category config { bind_log; };
+};

@@ -1,0 +1,14 @@
+logging {
+    channel bind_log {
+        file "/var/cache/bind/bind.log" versions 10 size 20m;
+        severity info;
+        print-category yes;
+        print-severity yes;
+        print-time yes;
+    };
+  
+        category client { bind_log; };
+        category queries { bind_log; };
+        category default { bind_log; };
+        category config { bind_log; };
+};

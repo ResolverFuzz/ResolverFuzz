@@ -1,0 +1,40 @@
+options {
+        directory "/var/cache/bind";
+
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you may need to fix the firewall to allow multiple
+        // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+        // If your ISP provided one or more IP addresses for stable 
+        // nameservers, you probably want to use them as forwarders.  
+        // Uncomment the following block, and insert the addresses replacing 
+        // the all-0's placeholder.
+
+        forwarders {
+             // change with different units
+             // 172.22.201.[unit no.]
+             172.22.201.13;
+        };
+
+        //========================================================================
+        // If BIND logs error messages about the root key being expired,
+        // you will need to update your keys.  See https://www.isc.org/bind-keys
+        //========================================================================
+        dnssec-validation no;
+        recursion no;
+
+        listen-on { any; };
+        dnstap {all;};
+        //dnstap-output file "/var/cache/bind/log.dnstap";
+        dnstap-output unix "/var/run/dnstap.sock";
+};
+
+
+key "rndc-key" {
+	algorithm hmac-sha256;
+	secret "LQACgLXOgIHTu8/z8LJWGWH4FkGiDqwnPpwM+DdXZK4=";
+};
+
+controls {
+  inet 127.0.0.1 allow { localhost; } keys { rndc-key; };
+};

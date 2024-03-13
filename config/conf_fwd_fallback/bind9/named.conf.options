@@ -1,0 +1,340 @@
+options {
+        directory "/var/cache/bind";
+
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you may need to fix the firewall to allow multiple
+        // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+        // If your ISP provided one or more IP addresses for stable 
+        // nameservers, you probably want to use them as forwarders.  
+        // Uncomment the following block, and insert the addresses replacing 
+        // the all-0's placeholder.
+
+        // forwarders {
+        //      0.0.0.0;
+        // };
+
+        //========================================================================
+        // If BIND logs error messages about the root key being expired,
+        // you will need to update your keys.  See https://www.isc.org/bind-keys
+        //========================================================================
+        dnssec-validation no;
+        recursion yes;
+
+        listen-on { any; };
+        listen-on-v6 { any; };
+        dnstap {all;};
+        //dnstap-output file "/var/cache/bind/log.dnstap";
+        dnstap-output unix "/var/run/dnstap.sock";
+};
+
+key "rndc-key" {
+	algorithm hmac-sha256;
+	secret "LQACgLXOgIHTu8/z8LJWGWH4FkGiDqwnPpwM+DdXZK4=";
+};
+
+controls {
+  inet 127.0.0.1 allow { localhost; } keys { rndc-key; };
+};
+
+
+zone "test0.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.0 port 53; };
+        forward first;
+};
+
+zone "test1.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.1 port 53; };
+        forward first;
+};
+
+zone "test2.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.2 port 53; };
+        forward first;
+};
+
+zone "test3.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.3 port 53; };
+        forward first;
+};
+
+zone "test4.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.4 port 53; };
+        forward first;
+};
+
+zone "test5.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.5 port 53; };
+        forward first;
+};
+
+zone "test6.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.6 port 53; };
+        forward first;
+};
+
+zone "test7.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.7 port 53; };
+        forward first;
+};
+
+zone "test8.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.8 port 53; };
+        forward first;
+};
+
+zone "test9.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.9 port 53; };
+        forward first;
+};
+
+zone "test10.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.10 port 53; };
+        forward first;
+};
+
+zone "test11.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.11 port 53; };
+        forward first;
+};
+
+zone "test12.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.12 port 53; };
+        forward first;
+};
+
+zone "test13.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.13 port 53; };
+        forward first;
+};
+
+zone "test14.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.14 port 53; };
+        forward first;
+};
+
+zone "test15.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.15 port 53; };
+        forward first;
+};
+
+zone "test16.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.16 port 53; };
+        forward first;
+};
+
+zone "test17.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.17 port 53; };
+        forward first;
+};
+
+zone "test18.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.18 port 53; };
+        forward first;
+};
+
+zone "test19.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.19 port 53; };
+        forward first;
+};
+
+zone "test20.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.20 port 53; };
+        forward first;
+};
+
+zone "test21.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.21 port 53; };
+        forward first;
+};
+
+zone "test22.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.22 port 53; };
+        forward first;
+};
+
+zone "test23.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.23 port 53; };
+        forward first;
+};
+
+zone "test24.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.24 port 53; };
+        forward first;
+};
+
+zone "test25.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.25 port 53; };
+        forward first;
+};
+
+zone "test26.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.26 port 53; };
+        forward first;
+};
+
+zone "test27.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.27 port 53; };
+        forward first;
+};
+
+zone "test28.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.28 port 53; };
+        forward first;
+};
+
+zone "test29.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.29 port 53; };
+        forward first;
+};
+
+zone "test30.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.30 port 53; };
+        forward first;
+};
+
+zone "test31.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.31 port 53; };
+        forward first;
+};
+
+zone "test32.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.32 port 53; };
+        forward first;
+};
+
+zone "test33.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.33 port 53; };
+        forward first;
+};
+
+zone "test34.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.34 port 53; };
+        forward first;
+};
+
+zone "test35.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.35 port 53; };
+        forward first;
+};
+
+zone "test36.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.36 port 53; };
+        forward first;
+};
+
+zone "test37.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.37 port 53; };
+        forward first;
+};
+
+zone "test38.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.38 port 53; };
+        forward first;
+};
+
+zone "test39.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.39 port 53; };
+        forward first;
+};
+
+zone "test40.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.40 port 53; };
+        forward first;
+};
+
+zone "test41.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.41 port 53; };
+        forward first;
+};
+
+zone "test42.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.42 port 53; };
+        forward first;
+};
+
+zone "test43.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.43 port 53; };
+        forward first;
+};
+
+zone "test44.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.44 port 53; };
+        forward first;
+};
+
+zone "test45.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.45 port 53; };
+        forward first;
+};
+
+zone "test46.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.46 port 53; };
+        forward first;
+};
+
+zone "test47.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.47 port 53; };
+        forward first;
+};
+
+zone "test48.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.48 port 53; };
+        forward first;
+};
+
+zone "test49.qifanzhang.com" {
+        type forward;
+        forwarders { 172.22.201.49 port 53; };
+        forward first;
+};
+
