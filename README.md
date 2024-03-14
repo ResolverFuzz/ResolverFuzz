@@ -1,4 +1,6 @@
 # ResolverFuzz
+<img src="./figs/resolverfuzz_logo.webp" alt="resolverfuzz_logo" style="zoom:50%;" />
+
 This repository is the official repository for [ResolverFuzz](https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-qifan) published on the 33rd USENIX Security Symposium (USENIX Security 2024). The extended version of this paper is available on [ArXiv](https://arxiv.org/abs/2310.03202). 
 
 `ResolverFuzz` is a grammar-based blackbox fuzzing tool designed to detect non-crash vulnerabilities in DNS software automatically/semi-automatically via differential analysis among different DNS software. In total, we identified 23 vulnerabilities with 19 confirmed and 15 CVEs assigned.
@@ -140,3 +142,5 @@ See [README.md](./diff_analysis/README.md) for instructions.
 # License
 
 The artifacts of ResolverFuzz, including this repository, are licensed under the MIT license. See [LICENSE](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/LICENSE) for details.
+
+<img src="/Users/qifanz/ResolverFuzz/ResolverFuzz/figs/let_dns_be_fuzzed.png" style="zoom:25%;" />
