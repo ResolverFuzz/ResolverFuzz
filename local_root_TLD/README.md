@@ -8,7 +8,7 @@ Install the Go compiler as [instructed](https://go.dev/doc/install).
 
 ## 0.4.2: Check the Docker network interface
 
-Same as [0.3: Docker Network Configuration](), the Docker network interface name is required here. After checking the Docker network interface name, it is required to fill it in the value assignment of `deviceL` in Line 30 of [local_root_TLD.go](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/local_root_TLD/local_root_TLD.go):
+Same with [0.3: Docker Network Configuration](https://github.com/ResolverFuzz/ResolverFuzz/tree/main?tab=readme-ov-file#03-docker-network-configuration), the Docker network interface name is required here. After checking the Docker network interface name, it is required to fill it in the value assignment of `deviceL` in Line 30 of [local_root_TLD.go](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/local_root_TLD/local_root_TLD.go):
 
 ```go
 deviceL = "network_interface"
