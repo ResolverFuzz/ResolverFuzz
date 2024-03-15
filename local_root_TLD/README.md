@@ -1,6 +1,6 @@
-# (Optional) 0.4: Local Root and TLD Nameserver
+# (Optional) 0.4: Local Nameserver 
 
-We implemented a local root and TLD server to avoid possible effects on other remote name servers in Go. Installation of this local root and TLD server is optional, and will not affect the performance of ResolverFuzz. 
+We implemented a local nameserver in Go to avoid possible effects on other remote name servers. Installation of this local nameserver is optional, and will not affect the performance of ResolverFuzz. 
 
 ## 0.4.1: Install Go
 
@@ -8,42 +8,38 @@ Install the Go compiler as [instructed](https://go.dev/doc/install).
 
 ## 0.4.2: Check the Docker network interface
 
-Same with [0.3: Docker Network Configuration](https://github.com/ResolverFuzz/ResolverFuzz/tree/main?tab=readme-ov-file#03-docker-network-configuration), the Docker network interface name is required here. After checking the Docker network interface name, it is required to fill it in the value assignment of `deviceL` in Line 30 of [local_root_TLD.go](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/local_root_TLD/local_root_TLD.go):
-
-```go
-deviceL = "network_interface"
-```
-
-For example, on our workstation, the value of `deviceL` will be assigned as:
-
-```go
-deviceL = "br-35582c1d0a12"
-```
+Same with [0.3: Docker Network Configuration](https://github.com/ResolverFuzz/ResolverFuzz/tree/main?tab=readme-ov-file#03-docker-network-configuration), the Docker network interface name is required here. It will be required as an argument during the execution of the local nameserver.
 
 ## 0.4.3: Compile the Local Nameserver
 
-Change to the current folder: 
+Change the terminal directory to the current folder: 
 
 ```bash
-cd local_root_TLD
+cd local_ns
 ```
 
 Then, initialize the packet dependencies for the local nameserver, and compile it:
 
 ```bash
-go mod init local_authority_server
+go mod init local_ns
 go mod tidy
-go build -o local_authority_server local_authority_server.go
+go build -o local_ns local_ns.go
 ```
 
-The executable binary `local_authority_server` will be created.
+The executable binary `local_ns` will be created.
 
 ## 0.4.4: Run the Local Nameserver
 
-Finally, run the executable with the zone file [test-zone.json](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/local_root_TLD/test-zone.json) as input:
+Finally, run the executable with two arguments. The first one is the network interface of the Docker network, and the second one is the zone file in JSON format:
 
 ```bash
-sudo ./local_authority_server test-zone.json
+sudo ./local_ns [network_interface] [zone_file]
 ```
 
-Keep it running on the background during the execution of `ResolverFuzz` so that all the NS referral queries for root servers, `.com` TLDs and attacker-controlled domains (i.e., `qifanzhang.com` and its sub-domains) will be answered locally.
+For example, on our workstation, the command will be :
+
+```bash
+sudo ./local_ns br-35582c1d0a12 test-zone.json
+```
+
+Keep it running on the background during the execution of `ResolverFuzz` so that all the NS referral queries for root servers, `.com` TLDs and attacker-controlled domains (i.e., `qifanzhang.com` and its sub-domains) will be answered locally by this program.
