@@ -115,9 +115,9 @@ On our workstation, for example, the command will be:
 sudo iptables -I FORWARD -i br-0ed6b350123e -p icmp -j DROP
 ```
 
-## (Optional) 0.4: Local Root and TLD Nameserver
+## (Optional) 0.4: Local Nameserver
 
-We implemented a local root and TLD server to avoid possible effects on other remote name servers. Installation of this local root and TLD server is optional, and will not affect the performance of ResolverFuzz. See [README.md](./local_root_TLD/README.md) for instructions. 
+We implemented a local nameserver to avoid possible effects on other remote nameservers. Installation of this local nameserver is optional, and will not affect the performance of ResolverFuzz. See [README.md](./local_ns/README.md) for instructions. 
 
 # 1: `ResolverFuzz` Usage
 

@@ -1,6 +1,6 @@
 # (Optional) 0.4: Local Nameserver 
 
-We implemented a local nameserver in Go to avoid possible effects on other remote name servers. Installation of this local nameserver is optional, and will not affect the performance of ResolverFuzz. 
+We implemented a local nameserver in Go to avoid possible effects on other remote nameservers. Installation of this local nameserver is optional, and will not affect the performance of ResolverFuzz. 
 
 ## 0.4.1: Install Go
 
