@@ -150,5 +150,6 @@ See [README.md](./diff_analysis/README.md) for instructions.
 The artifacts of ResolverFuzz, including this repository, are licensed under the MIT license. See [LICENSE](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/LICENSE) for details.
 
 <p align="center">
-	<img src="./figs/let_dns_be_fuzzed.png" width="50%"/>
+	<img src="./figs/uci_logo.png"/>
 </p>
+
