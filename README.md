@@ -38,10 +38,10 @@ The hardware specs of our workstation for `ResolverFuzz` development and testing
 
 - After installation of Docker Engine, it's recommended to [manage Docker as a non-root use](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user). With this setting, `docker` commands don't have to be prefaced with `sudo`. Otherwise, all the `docker` commands are needed to be prefaced with `sudo` privilege.  
 
-Then, the Python environment could be imported from [environment.yml](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/environment.yml) via the command:
+Then, the Python environment named `resolverfuzz` could be imported from [environment.yml](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/environment.yml) via the command:
 
 ```bash
-conda env create -n dns_docker --file environment.yml
+conda env create -n resolverfuzz --file environment.yml
 ```
 
 ## 0.2: Pulling Docker Images from Docker Hub
