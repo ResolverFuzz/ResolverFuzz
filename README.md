@@ -119,9 +119,9 @@ sudo iptables -I FORWARD -i br-0ed6b350123e -p icmp -j DROP
 
 We implemented a local nameserver to avoid possible effects on other remote nameservers. Installation of this local nameserver is optional, and will not affect the performance of ResolverFuzz. See [README.md](./local_ns/README.md) for instructions. 
 
-# 1: `ResolverFuzz` Usage
+# 1: Testing Infrastructure
 
-See [README.md](./src/README.md) for instructions.
+See [README.md](./test_infra/README.md) for instructions.
 
 # 2: Differential Analysis
 
