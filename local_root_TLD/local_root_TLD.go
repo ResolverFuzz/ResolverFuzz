@@ -27,9 +27,6 @@ type ZoneNSStruct struct {
 }
 
 var (
-	deviceL = "br-35582c1d0a12"
-	//srcMacL     = net.HardwareAddr{0x00, 0x0c, 0x29, 0x8f, 0xca, 0x10}
-	//gtwMacL     = net.HardwareAddr{0xdc, 0xda, 0x80, 0xd8, 0xcf, 0x81}
 	handleSendL *pcap.Handle
 	errL        error
 	ttlL        = 3600 * 24 * 7
@@ -271,14 +268,16 @@ func dnsResponseL(
 }
 
 func main() {
-	if len(os.Args) != 2 {
-		fmt.Println("./local_authority_server <zone-file>")
+	if len(os.Args) != 3 {
+		fmt.Println("Usage: ./local_authority_server <network-interface> <zone-file>")
 		os.Exit(1)
 	}
 
 	fmt.Printf("%s : %s\n", time.Now().Format(time.ANSIC), "Local authority DNS server starts")
 
-	file := os.Args[1]
+	deviceL := os.Args[1]
+	file := os.Args[2]
+
 	initZoneNSMap(file)
 
 	handleSendL, errL = pcap.OpenLive(deviceL, 1024, false, 0*time.Second)
