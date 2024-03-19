@@ -4,3 +4,4 @@ __pycache__/
 
 test_infra/dump
 test_infra/cdns_test_res
+test_infra/fwd_fallback_test_res
