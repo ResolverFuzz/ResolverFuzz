@@ -9,14 +9,14 @@ This repository is the official repository for [ResolverFuzz](https://www.usenix
 
 # List of DNS Software Tested
 
-| Software       | Version  | Docker Image                                                 |
-| -------------- | -------- | ------------------------------------------------------------ |
-| BIND           | 9.18.0   | [qifanz/resolverfuzz-bind9:9.18.0](https://hub.docker.com/layers/qifanz/resolverfuzz-bind9/9.18.0/images/sha256-2db8dbdedcfbea53cd590318befb9602c50f36d5fe8f08a75803fa471dfb55ca?context=repo) |
-| Unbound        | 1.16.0   | [qifanz/resolverfuzz-unbound:1.16.0](https://hub.docker.com/layers/qifanz/resolverfuzz-unbound/1.16.0/images/sha256-fca2317edd6a53f8540b0dfeb39c6732f90392380c3fb33e669b2444ace1a016?context=repo) |
-| Knot Resolver  | 5.5.0    | [qifanz/resolverfuzz-knot:5.5.0](https://hub.docker.com/layers/qifanz/resolverfuzz-knot/5.5.0/images/sha256-a2b309b579dff947073ca8a0a6ff4f6890948e75584afac5fd701baf0922d597?context=repo) |
-| PowerDNS       | 4.7.0    | [qifanz/resolverfuzz-powerdns:4.7.0](https://hub.docker.com/layers/qifanz/resolverfuzz-powerdns/4.7.0/images/sha256-071af598b8305e70d7fe932af2ef27e6d48f96b68405229bc35a1b0f4675377e?context=repo) |
-| MaraDNS        | 3.5.0022 | [qifanz/resolverfuzz-maradns:3.5.0022](https://hub.docker.com/layers/qifanz/resolverfuzz-maradns/3.5.0022/images/sha256-32d5d0d6ba521cdcc3a12f5ecf497f51353e151da1dc02b05f832dbfa0db6739?context=repo) |
-| Technitium DNS | 10.0.1   | [qifanz/resolverfuzz-technitium:10.0.1](https://hub.docker.com/layers/qifanz/resolverfuzz-technitium/10.0.1/images/sha256-03fa54cc6827c3d908a7767e3c1c0eac575ad126970d17f23861e7a8bdba9468?context=repo) |
+|    Software    | Version  |                         Docker Image                         |
+| :------------: | :------: | :----------------------------------------------------------: |
+|      BIND      |  9.18.0  | [qifanz/resolverfuzz-bind9:9.18.0](https://hub.docker.com/layers/qifanz/resolverfuzz-bind9/9.18.0/images/sha256-2db8dbdedcfbea53cd590318befb9602c50f36d5fe8f08a75803fa471dfb55ca?context=repo) |
+|    Unbound     |  1.16.0  | [qifanz/resolverfuzz-unbound:1.16.0](https://hub.docker.com/layers/qifanz/resolverfuzz-unbound/1.16.0/images/sha256-fca2317edd6a53f8540b0dfeb39c6732f90392380c3fb33e669b2444ace1a016?context=repo) |
+| Knot Resolver  |  5.5.0   | [qifanz/resolverfuzz-knot:5.5.0](https://hub.docker.com/layers/qifanz/resolverfuzz-knot/5.5.0/images/sha256-a2b309b579dff947073ca8a0a6ff4f6890948e75584afac5fd701baf0922d597?context=repo) |
+|    PowerDNS    |  4.7.0   | [qifanz/resolverfuzz-powerdns:4.7.0](https://hub.docker.com/layers/qifanz/resolverfuzz-powerdns/4.7.0/images/sha256-071af598b8305e70d7fe932af2ef27e6d48f96b68405229bc35a1b0f4675377e?context=repo) |
+|    MaraDNS     | 3.5.0022 | [qifanz/resolverfuzz-maradns:3.5.0022](https://hub.docker.com/layers/qifanz/resolverfuzz-maradns/3.5.0022/images/sha256-32d5d0d6ba521cdcc3a12f5ecf497f51353e151da1dc02b05f832dbfa0db6739?context=repo) |
+| Technitium DNS |  10.0.1  | [qifanz/resolverfuzz-technitium:10.0.1](https://hub.docker.com/layers/qifanz/resolverfuzz-technitium/10.0.1/images/sha256-03fa54cc6827c3d908a7767e3c1c0eac575ad126970d17f23861e7a8bdba9468?context=repo) |
 
 # 0. Environment and Dependencies
 
