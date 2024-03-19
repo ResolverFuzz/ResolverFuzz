@@ -1,1 +1,6 @@
-./*/*.pyc
+__pycache__/
+*.py[cod]
+*.so
+
+test_infra/dump
+test_infra/cdns_test_res
