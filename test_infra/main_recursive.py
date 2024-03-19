@@ -2199,7 +2199,7 @@ def sys_argv_handler():
 	## result folder path: the folder to store fuzzing results
 	parser.add_argument('--res_folder', 
 					 	type=str,
-						help='the folder to stare fuzzing results, default: ./fwd_test_res')
+						help='the folder to stare fuzzing results, default: ./recursive_test_res')
 	
 	## parse args
 	args = parser.parse_args()
