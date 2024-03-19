@@ -11,27 +11,15 @@ import time
 import subprocess
 import requests
 import json
+import argparse
+
+parser = argparse.ArgumentParser(description='ResolverFuzz config options')
 
 from input_generation import dns_fuzzer as dns_fuzzer
 client = docker.from_env()
 
-total_payload_num = 20 # #payloads (e.g, pair of queries and responses) to be tested for each unit
-unit_size = 40 # temporarily we test the range from 1 to 50
-# 20-25 is the best
-# set 20 for stability
-'''
-total_payload_num set to 20
-unit_size * (avg.) throughput per unit = total throughput (QPS)
-1  * 0.139 = 0.139 (ref. single-thread throughput)
-5  * 0.121 = 0.605
-10 * 0.116 = 1.159
-15 * 0.125 = 1.875
-20 * 0.118 = 2.360
-25 * 0.107 = 2.675 (~19x faster than single-thread)
-30 * 0.077 = 2.310
-35 * 0.068 = 2.383
-40 * 0.058 = 2.318
-'''
+total_payload_num = 5 # #payloads (e.g, pair of queries and responses) to be tested for each unit
+unit_size = 5 # #units to be deployed
 
 dnstap_save_interval = 100
 tcpdump_wait_time = 1
@@ -91,28 +79,28 @@ dnstap_ip_addr = '{}.50.1'.format(ip_addr_range)
 
 # ports for sending queries from attacker containers
 src_port_dict = {
-	'bind9':		110,
-	'unbound':		120,
-	'powerdns':		130,
-	'knot':			140,
-	'maradns':		150,
-	'technitium':	160
+	'bind9':		11000,
+	'unbound':		12000,
+	'powerdns':		13000,
+	'knot':			14000,
+	'maradns':		15000,
+	'technitium':	16000
 }
 
 
 ## file paths
 ## result folder structure: [result_folder_path]/[unit no.]/[round no.]/[dns_sw_name]
-result_folder_path = '/mnt/ssd1/dns_fuzzing_docker/fuzzer_results/recursive_test'
-conf_folder_path = '/home/qifanz/DSP_Lab/dns-fuzzing/dns-docker-images/conf_recur_concurrent'
-auth_srv_tmp_path = '/home/qifanz/DSP_Lab/dns-fuzzing/dns-docker-images/auth-srv-batch/auth-srv-tmp'
+result_folder_path = os.path.abspath('./recursive_test_res')
+conf_folder_path = os.path.abspath('../config/conf_recur_concurrent')
+auth_srv_tmp_path = os.path.abspath('./auth-srv-tmp')
 
 # dump folders may need to change due to multiple identical containers for one DNS sw
 # for each dns sw container, the dump folder is: 
 # dump_folder_path/[dns_sw_name]/[unit No.]
 # OR
 # (dnstap) dump_folder_path/dnstap/
-dump_folder_path = '/mnt/ssd1/dns_fuzzing_docker/recur_dump'
-attacker_host_tmp_path = '/home/qifanz/DSP_Lab/dns-fuzzing/dns-docker-images/attacker/host_tmp'
+dump_folder_path = os.path.abspath('./dump')
+attacker_host_tmp_path = os.path.abspath('./host_tmp')
 
 
 ## classes for containers
@@ -2176,53 +2164,83 @@ class DNSFuzzerGenerator:
 		return self.dns_fuzzer.DumpPkt()
 
 
-
-
 ## function declaration and implementation
 def sys_argv_handler():
-	print('sys argv:', sys.argv)
-	global res_time_stamp
-	if '--time_stamp' in sys.argv:
-		res_time_stamp_index = sys.argv.index('--time_stamp')
-		res_time_stamp = float(sys.argv[res_time_stamp_index + 1])
-	else:
-		res_time_stamp = time.time()
-
-	global result_folder_path
-	result_folder_path = '{res_folder}/{time_stamp}'.format(
-		res_folder = result_folder_path, 
-		time_stamp = res_time_stamp
-	)
-
-	if '--is_bind9_eval' in sys.argv:
-		global is_bind9_eval
-		is_bind9_eval_index = sys.argv.index('--is_bind9_eval')
-		is_bind9_eval = bool(sys.argv[is_bind9_eval_index + 1])
-
-	if '--is_unbound_eval' in sys.argv:
-		global is_unbound_eval
-		is_unbound_eval_index = sys.argv.index('--is_unbound_eval')
-		is_unbound_eval = bool(sys.argv[is_unbound_eval_index + 1])
-
-	if '--is_powerdns_eval' in sys.argv:
-		global is_powerdns_eval
-		is_powerdns_eval_index = sys.argv.index('--is_powerdns_eval')
-		is_powerdns_eval = bool(sys.argv[is_powerdns_eval_index + 1])
-
-	if '--is_knot_eval' in sys.argv:
-		global is_knot_eval
-		is_knot_eval_index = sys.argv.index('--is_knot_eval')
-		is_knot_eval = bool(sys.argv[is_knot_eval_index + 1])
-
-	if '--is_maradns_eval' in sys.argv:
-		global is_maradns_eval
-		is_maradns_eval_index = sys.argv.index('--is_maradns_eval')
-		is_maradns_eval = bool(sys.argv[is_maradns_eval_index + 1])
+	## options for disabling testing DNS software
+	parser.add_argument('--disable_bind9', 
+					 	action='store_false')
+	parser.add_argument('--disable_unbound', 
+					 	action='store_false')
+	parser.add_argument('--disable_knot', 
+					 	action='store_false')
+	parser.add_argument('--disable_powerdns', 
+					 	action='store_false')
+	parser.add_argument('--disable_technitium', 
+					 	action='store_false')
+	parser.add_argument('--disable_maradns', 
+					 	action='store_false')
 	
-	if '--is_technitium_eval' in sys.argv:
-		global is_technitium_eval
-		is_technitium_eval_index = sys.argv.index('--is_technitium_eval')
-		is_technitium_eval = bool(sys.argv[is_technitium_eval_index + 1])
+	## debug mode: if enabled, the program will be single-processed.
+	parser.add_argument('--debug', 
+					 	action='store_true', 
+						help='enable the debug mode so that the program will be single-processed')
+	
+	## unit size: # units deployed and tested
+	parser.add_argument('--unit_size', 
+					 	type=int, 
+						choices=range(1, 51), 
+						help='# units deployed and tested, range:[1, 50], default: 5')
+	
+	## payload num: # payloads to be tested in each unit
+	parser.add_argument('--payload_num',
+					 	type=int, 
+						help='# payloads to be tested in each unit, suggested less than 1000, default: 5')
+	
+	## result folder path: the folder to store fuzzing results
+	parser.add_argument('--res_folder', 
+					 	type=str,
+						help='the folder to stare fuzzing results, default: ./fwd_test_res')
+	
+	## parse args
+	args = parser.parse_args()
+	global is_bind9_eval, is_unbound_eval, is_knot_eval, is_powerdns_eval, is_technitium_eval, is_maradns_eval, is_debug
+
+	is_bind9_eval = args.disable_bind9
+	is_unbound_eval = args.disable_unbound
+	is_knot_eval = args.disable_knot
+	is_powerdns_eval = args.disable_powerdns
+	is_technitium_eval = args.disable_technitium
+	is_maradns_eval = args.disable_maradns
+
+	is_debug = args.debug
+
+	if args.unit_size:
+		global unit_size
+		unit_size = args.unit_size
+
+	if args.payload_num:
+		global total_payload_num
+		total_payload_num = args.payload_num
+
+	if args.res_folder:
+		global result_folder_path
+		result_folder_path =  os.path.abspath(args.res_folder)
+	
+
+	print('bind9 eval:', is_bind9_eval)
+	print('Unbound eval:', is_unbound_eval)
+	print('PowerDNS eval:', is_powerdns_eval)
+	print('Knot eval:', is_knot_eval)
+	print('MaraDNS eval:', is_maradns_eval)
+	print('Technitium eval:', is_technitium_eval)
+
+	print('is_debug:', is_debug)
+
+	print('unit_size:', unit_size)
+	print('total_payload_num:', total_payload_num)
+
+	print('result_folder_path:', result_folder_path)
+
 	return
 
 
@@ -2291,12 +2309,6 @@ def unit_payload_test(curr_unit: TestUnit):
 if __name__ == '__main__':
 	## 0. checck system cmd args
 	sys_argv_handler()
-	print('bind9 eval:', is_bind9_eval)
-	print('Unbound eval:', is_unbound_eval)
-	print('PowerDNS eval:', is_powerdns_eval)
-	print('Knot eval:', is_knot_eval)
-	print('MaraDNS eval:', is_maradns_eval)
-	print('Technitium eval:', is_technitium_eval)
 	
 	## 1. clean and start dnstap
 	global_dnstap_obj = DNSTapContainer()
