@@ -9,7 +9,7 @@ The testing infrastructure is implemented in Python based on Docker. As demonstr
 
 ## 1.1: Switch conda environment
 
-To run the scripts, we first need to switch to the conda environment named `resolverfuzz` set in Step 0.1:
+To run the scripts, we first need to switch to the conda environment named `resolverfuzz` set in Step [0.1](https://github.com/ResolverFuzz/ResolverFuzz/tree/main?tab=readme-ov-file#01-software-dependencies):
 
 ```bash
 conda activate resolverfuzz
@@ -29,7 +29,7 @@ The scripts could be easily run without any arguments:
 sudo /path/to/resolverfuzz/bin/python main_[cdns, cdns_fallback, fwd_global, recursive].py 
 ```
 
-`sudo` privilege is required here since we need to control the Docker and network infrastructure of the system. Replace `/path/to/resolverfuzz/bin/python` with the path we got from the command `which python` in Step 1.1. 
+`sudo` privilege is required here since we need to control the Docker and network infrastructure of the system. Replace `/path/to/resolverfuzz/bin/python` with the path we got from the command `which python` in Step [1.1](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/test_infra/README.md#11-switch-conda-environment). 
 
 ## Script arguments
 
