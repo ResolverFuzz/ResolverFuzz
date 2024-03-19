@@ -90,8 +90,8 @@ src_port_dict = {
 
 ## file paths
 ## result folder structure: [result_folder_path]/[unit no.]/[round no.]/[dns_sw_name]
-result_folder_path = os.path.abspath('./fwd_fallback_test_res')
-conf_folder_path = os.path.abspath('../config/conf_cdns')
+result_folder_path = os.path.abspath('./cdns_fallback_test_res')
+conf_folder_path = os.path.abspath('../config/conf_cdns_fallback')
 auth_srv_tmp_path = os.path.abspath('./auth-srv-tmp')
 
 # dump folders may need to change due to multiple identical containers for one DNS sw
