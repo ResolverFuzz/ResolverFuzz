@@ -66,5 +66,230 @@ In detail:
 |     Attacker's client      | 172.22.101.[unit_no] |
 | Attacker-ctrl'd nameserver | 172.22.201.[unit_no] |
 
-where `unit_no` refers the number of the current unit.
+where `unit_no` refers to the number of the current unit.
+
+## Result structure
+
+Once the testing is finished, you will get the results of testing in the structure:
+
+```
+./[cdns, cdns_fallback, fwd, recursive]_test_res/[unit_no]/[round_no]/[dns_sw_name]/...
+```
+
+where `unit_no` refers to the number of a specific unit, `round_no` refers to the round number of a specific test, and `dns_sw_name` refers to the results of which DNS software (`bind9`, `unbound`, `powerdns`, `knot`, `maradns` or `technitium`) are stored in this folder. 
+
+For example, suppose the execution of the following command is completed:
+
+```bash
+sudo /path/to/resolverfuzz/bin/python main_cdns.py --unit_size 2 --payload_num 2
+```
+
+Then, the results will be stored in `./cdns_test_res` in the following structure:
+
+```
+./cdns_test_res
+├── 0
+│   ├── 0
+│   │   ├── auth_payload.txt
+│   │   ├── bind9
+│   │   │   ├── bind.log
+│   │   │   ├── named_dump.db
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── dnstap
+│   │   ├── knot
+│   │   │   ├── knot.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── maradns
+│   │   │   ├── maradns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── powerdns
+│   │   │   ├── powerdns.cache.db
+│   │   │   ├── powerdns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── query.txt
+│   │   ├── stats_record.txt
+│   │   ├── technitium
+│   │   │   ├── cache.json
+│   │   │   ├── log.txt
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   └── unbound
+│   │       ├── response.txt
+│   │       ├── tcpdump.pcap
+│   │       ├── unbound.cache.db
+│   │       └── unbound.log
+│   ├── 1
+│   │   ├── auth_payload.txt
+│   │   ├── bind9
+│   │   │   ├── bind.log
+│   │   │   ├── named_dump.db
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── dnstap
+│   │   ├── knot
+│   │   │   ├── knot.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── maradns
+│   │   │   ├── maradns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── powerdns
+│   │   │   ├── powerdns.cache.db
+│   │   │   ├── powerdns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── query.txt
+│   │   ├── stats_record.txt
+│   │   ├── technitium
+│   │   │   ├── cache.json
+│   │   │   ├── log.txt
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   └── unbound
+│   │       ├── response.txt
+│   │       ├── tcpdump.pcap
+│   │       ├── unbound.cache.db
+│   │       └── unbound.log
+│   └── 2
+│       ├── auth_payload.txt
+│       ├── bind9
+│       │   ├── bind.log
+│       │   ├── named_dump.db
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── dnstap
+│       ├── knot
+│       │   ├── knot.log
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── maradns
+│       │   ├── maradns.log
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── powerdns
+│       │   ├── powerdns.cache.db
+│       │   ├── powerdns.log
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── query.txt
+│       ├── stats_record.txt
+│       ├── technitium
+│       │   ├── cache.json
+│       │   ├── log.txt
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       └── unbound
+│           ├── response.txt
+│           ├── tcpdump.pcap
+│           ├── unbound.cache.db
+│           └── unbound.log
+├── 1
+│   ├── 0
+│   │   ├── auth_payload.txt
+│   │   ├── bind9
+│   │   │   ├── bind.log
+│   │   │   ├── named_dump.db
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── dnstap
+│   │   ├── knot
+│   │   │   ├── knot.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── maradns
+│   │   │   ├── maradns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── powerdns
+│   │   │   ├── powerdns.cache.db
+│   │   │   ├── powerdns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── query.txt
+│   │   ├── stats_record.txt
+│   │   ├── technitium
+│   │   │   ├── cache.json
+│   │   │   ├── log.txt
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   └── unbound
+│   │       ├── response.txt
+│   │       ├── tcpdump.pcap
+│   │       ├── unbound.cache.db
+│   │       └── unbound.log
+│   ├── 1
+│   │   ├── auth_payload.txt
+│   │   ├── bind9
+│   │   │   ├── bind.log
+│   │   │   ├── named_dump.db
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── dnstap
+│   │   ├── knot
+│   │   │   ├── knot.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── maradns
+│   │   │   ├── maradns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── powerdns
+│   │   │   ├── powerdns.cache.db
+│   │   │   ├── powerdns.log
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   ├── query.txt
+│   │   ├── stats_record.txt
+│   │   ├── technitium
+│   │   │   ├── cache.json
+│   │   │   ├── log.txt
+│   │   │   ├── response.txt
+│   │   │   └── tcpdump.pcap
+│   │   └── unbound
+│   │       ├── response.txt
+│   │       ├── tcpdump.pcap
+│   │       ├── unbound.cache.db
+│   │       └── unbound.log
+│   └── 2
+│       ├── auth_payload.txt
+│       ├── bind9
+│       │   ├── bind.log
+│       │   ├── named_dump.db
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── dnstap
+│       ├── knot
+│       │   ├── knot.log
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── maradns
+│       │   ├── maradns.log
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── powerdns
+│       │   ├── powerdns.cache.db
+│       │   ├── powerdns.log
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       ├── query.txt
+│       ├── stats_record.txt
+│       ├── technitium
+│       │   ├── cache.json
+│       │   ├── log.txt
+│       │   ├── response.txt
+│       │   └── tcpdump.pcap
+│       └── unbound
+│           ├── response.txt
+│           ├── tcpdump.pcap
+│           ├── unbound.cache.db
+│           └── unbound.log
+└── log.dnstap
+```
+
+
 
