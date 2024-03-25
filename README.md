@@ -125,7 +125,7 @@ See [README.md](./test_infra/README.md) for instructions.
 
 # 2: Differential Analysis
 
-See [README.md](./diff_analysis/README.md) for instructions.
+See [README.md](./data_process/README.md) for instructions.
 
 # Cite `ResolverFuzz`
 

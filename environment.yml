@@ -61,6 +61,7 @@ dependencies:
   - numpy-base=1.22.3=py38hf524024_0
   - openssl=1.1.1t=h7f8727e_0
   - packaging=21.3=pyhd3eb1b0_0
+  - pandas=1.5.3=py38h417a72b_0
   - parso=0.8.3=pyhd3eb1b0_0
   - pcre=8.45=h295c915_0
   - pexpect=4.8.0=pyhd3eb1b0_3
@@ -80,6 +81,7 @@ dependencies:
   - qt=5.9.7=h5867ecd_1
   - readline=8.1.2=h7f8727e_1
   - scapy=2.4.3=py_0
+  - scikit-learn=1.3.0=py38h1128e8f_1
   - setuptools=61.2.0=py38h06a4308_0
   - sip=4.19.13=py38h295c915_0
   - six=1.16.0=pyhd3eb1b0_1
