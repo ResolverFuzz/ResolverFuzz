@@ -291,5 +291,29 @@ Then, the results will be stored in `./cdns_test_res` in the following structure
 └── log.dnstap
 ```
 
+### Explanation of results
 
+In the given example of `./cdns_test_res` above:
 
+- `auth_payload.txt` is the generated payload deployed on the nameserver, stored in both hexadecimal and JSON format.
+- `query.txt` is the generated query payload to be sent on the client, stored in hexadecimal format.
+- `stats_record.txt` is used to record the current testing status in the current unit, including:
+  - total time consumed
+  - total payloads tested
+  - average testing latency 
+  - average testing throughput
+- `log.dnstap` stores the log from DNSTap listener.
+- `[dns_sw_name]/response.txt` records the query result of the related DNS software
+- `[dns_sw_name]/tcpdump.pcap` stores network traffic in the docker container of the related DNS software during the test
+- Logs of DNS software are stored in:
+  - `bind9/bind.log`
+  - `knot/knot.log`
+  - `maradns/maradns.log`
+  - `powerdns/powerdns.log`
+  - `technitium/log.txt`
+  - `unbound/unbound.log`
+- Cache dump of DNS software are stored in:
+  - `bind9/named_dump.db`
+  - `powerdns/powerdns.cache.db`
+  - `technitium/cache.json`
+  - `unbound/unbound.cache.db`
