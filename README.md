@@ -7,6 +7,18 @@ This repository is the official repository for [ResolverFuzz](https://www.usenix
 
 `ResolverFuzz` is a grammar-based blackbox fuzzing tool designed to detect non-crash vulnerabilities in DNS software automatically/semi-automatically via differential analysis among different DNS software. In total, we identified 23 vulnerabilities with 19 confirmed and 15 CVEs assigned.
 
+# Cite `ResolverFuzz`
+
+```bibtex
+@inproceedings{zhang2024resolverfuzz, 
+    year = {2024}, 
+    author = {Zhang, Qifan and Bai, Xuesong and Li, Xiang and Duan, Haixin and Li, Qi and Li, Zhou}, 
+    title = {{ResolverFuzz: Automated Discovery of DNS Resolver Vulnerabilities with Query-Response Fuzzing}}, 
+    booktitle = {Proceedings of the 33rd USENIX Security Symposium}, 
+    series = {USENIX Security '24}
+}
+```
+
 # List of DNS Software Tested
 
 |    Software    | Version  |                         Docker Image                         |
@@ -127,18 +139,6 @@ See [README.md](./test_infra/README.md) for instructions.
 
 See [README.md](./data_process/README.md) for instructions.
 
-# Cite `ResolverFuzz`
-
-```bibtex
-@inproceedings{zhang2024resolverfuzz, 
-    year = {2024}, 
-    author = {Zhang, Qifan and Bai, Xuesong and Li, Xiang and Duan, Haixin and Li, Qi and Li, Zhou}, 
-    title = {{ResolverFuzz: Automated Discovery of DNS Resolver Vulnerabilities with Query-Response Fuzzing}}, 
-    booktitle = {Proceedings of the 33rd USENIX Security Symposium}, 
-    series = {USENIX Security '24}
-}
-```
-
 # Related Documents
 
 - [Pre-published paper](https://www.usenix.org/system/files/sec23winter-prepub-246-zhang-qifan.pdf)
@@ -148,8 +148,4 @@ See [README.md](./data_process/README.md) for instructions.
 # License
 
 The artifacts of ResolverFuzz, including this repository, are licensed under the MIT license. See [LICENSE](https://github.com/ResolverFuzz/ResolverFuzz/blob/main/LICENSE) for details.
-
-<p align="center">
-	<img src="./figs/uci_logo.png"/>
-</p>
 
