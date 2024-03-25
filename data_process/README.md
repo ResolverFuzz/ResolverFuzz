@@ -14,3 +14,15 @@ python parser_query.py --res_folder /path/to/results
 # Parse all responses
 python parser_response.py --res_folder /path/to/results
 ```
+
+## Traffic Analysis
+
+During the fuzzing process, we gather all network traffic within the Docker container. By examining this captured data, we can determine whether the resolver's network usage is within acceptable limits or if it is being exploited to initiate a traffic amplification attack.
+
+```shell
+cd traffic
+conda activate resolverfuzz
+python traffic_oracle.py
+```
+
+The script will save `packet number ratio` and `packet size ratio` in `csv` format.

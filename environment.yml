@@ -61,6 +61,7 @@ dependencies:
   - numpy-base=1.22.3=py38hf524024_0
   - openssl=1.1.1t=h7f8727e_0
   - packaging=21.3=pyhd3eb1b0_0
+  - pandas=1.5.3=py38h417a72b_0
   - parso=0.8.3=pyhd3eb1b0_0
   - pcre=8.45=h295c915_0
   - pexpect=4.8.0=pyhd3eb1b0_3
