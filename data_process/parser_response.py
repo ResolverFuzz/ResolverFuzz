@@ -52,6 +52,6 @@ def parse_response(res_folder: str):
 
 if __name__ == '__main__':
     # Add the arguments
-    parser.add_argument('--res_folder', type=str, help='Path to the result folder.')
+    parser.add_argument('--res_folder', type=str, help='Path to the result folder.', required=True)
     args = parser.parse_args()
     parse_response(args.res_folder)
