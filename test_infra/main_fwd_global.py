@@ -1362,7 +1362,7 @@ class PowerDNSContainer:
 		return
 
 	def cache_flush(self):
-		exit_code, output = self.container.exec_run('rec_control wipe-cache *')
+		exit_code, output = self.container.exec_run('rec_control wipe-cache $')
 
 		print('='*15, 'Unit #{} powerdns cache flushed'.format(self.unit_num), '='*15)
 		return
