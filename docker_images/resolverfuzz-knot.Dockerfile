@@ -18,4 +18,4 @@ RUN tar -xf knot-3.1.8.tar.xz & tar -xf knot-resolver-5.5.0.tar.xz
 # build from source code
 RUN cd knot-3.1.8 && autoreconf -i -f && ./configure && make -j4 && make install
 RUN cd knot-resolver-5.5.0 && meson build_dir --prefix=/tmp/kr --default-library=static && ninja -C build_dir && ninja install -C build_dir
-RUN mkdir -p /etc/knot-resolver/ && makedir -p /var/cache/knot/
+RUN mkdir -p /etc/knot-resolver/ && mkdir -p /var/cache/knot/
