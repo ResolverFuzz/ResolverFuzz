@@ -1,7 +1,7 @@
 # This is an example deadwood rc file 
 # Note that comments are started by the hash symbol
 
-bind_address="172.20.4.1" # IP we bind to
+bind_address="172.22.5.20" # IP we bind to
 
 # The following line is disabled by being commented out
 #bind_address="::1" # We have optional IPv6 support
@@ -22,10 +22,10 @@ chroot_dir = "/etc/deadwood/" # Directory we run program from (not used in Win32
 # It is also possible to use ICANN root servers, as follows
 root_servers = {}
 # ICANN DNS root servers 
-root_servers["."]="198.41.0.4, 199.9.14.201, 192.33.4.12, 199.7.91.13,"
-root_servers["."]+="192.203.230.10, 192.5.5.241, 192.112.36.4, "
-root_servers["."]+="198.97.190.53, 192.36.148.17, 192.58.128.30, "
-root_servers["."]+="193.0.14.129, 199.7.83.42, 202.12.27.33"
+#root_servers["."]="198.41.0.4, 199.9.14.201, 192.33.4.12, 199.7.91.13,"
+#root_servers["."]+="192.203.230.10, 192.5.5.241, 192.112.36.4, "
+#root_servers["."]+="198.97.190.53, 192.36.148.17, 192.58.128.30, "
+#root_servers["."]+="193.0.14.129, 199.7.83.42, 202.12.27.33"
 
 recursive_acl = "0.0.0.0/0" # Who is allowed to use the cache
 
@@ -55,4 +55,4 @@ filter_rfc1918 = 0
 upstream_servers = {}
 upstream_servers["."] = "172.22.201.20"
 
-verbose_level = 300
+verbose_level = 9

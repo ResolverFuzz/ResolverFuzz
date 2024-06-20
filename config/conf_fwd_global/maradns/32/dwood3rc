@@ -1,7 +1,7 @@
 # This is an example deadwood rc file 
 # Note that comments are started by the hash symbol
 
-bind_address="172.22.5.3" # IP we bind to
+bind_address="172.22.5.32" # IP we bind to
 
 # The following line is disabled by being commented out
 #bind_address="::1" # We have optional IPv6 support
@@ -53,6 +53,6 @@ resurrections = 1
 filter_rfc1918 = 0
 
 upstream_servers = {}
-upstream_servers["."] = "172.22.201.3"
+upstream_servers["."] = "172.22.201.32"
 
 verbose_level = 9
