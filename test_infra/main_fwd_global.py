@@ -2206,8 +2206,8 @@ def sys_argv_handler():
 	## unit size: # units deployed and tested
 	parser.add_argument('--unit_size', 
 					 	type=int, 
-						choices=range(1, 51), 
-						help='# units deployed and tested, range:[1, 50], default: 5')
+						choices=range(1, 41), 
+						help='# units deployed and tested, range:[1, 40], default: 5')
 	
 	## payload num: # payloads to be tested in each unit
 	parser.add_argument('--payload_num',
