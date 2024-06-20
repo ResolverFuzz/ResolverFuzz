@@ -5,7 +5,7 @@ The testing infrastructure is implemented in Python based on Docker. As demonstr
 - `main_cdns.py`: Conditional DNS (CDNS) without fallback mode 
 - `main_cdns_fallback.py`: CDNS with fallback mode
 - `main_fwd_global.py`: Forward-only mode
-- `main_recursive.py`: Recursive-only monde
+- `main_recursive.py`: Recursive-only mode
 
 ## 1.1: Switch conda environment
 
