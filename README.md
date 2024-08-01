@@ -5,7 +5,14 @@
 
 This repository is the official repository for [ResolverFuzz](https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-qifan) published on the 33rd USENIX Security Symposium (USENIX Security 2024). The extended version of this paper is available on [ArXiv](https://arxiv.org/abs/2310.03202). 
 
-`ResolverFuzz` is a grammar-based blackbox fuzzing tool designed to detect non-crash vulnerabilities in DNS software automatically/semi-automatically via differential analysis among different DNS software. In total, we identified 23 vulnerabilities with 19 confirmed and 15 CVEs assigned.
+`ResolverFuzz` is a grammar-based blackbox fuzzing tool designed to detect non-crash vulnerabilities in DNS software automatically/semi-automatically via differential analysis among different DNS software. In total, we identified 23 vulnerabilities with 19 confirmed and 15 CVEs assigned. 
+
+This artifact has been awarded with [USENIX Badge](https://secartifacts.github.io/usenixsec2024/badges) **Artifacts Available** and **Artifacts Functional** by [USENIX Security 2024 Artifact Evaluation Committee (AEC)](https://www.usenix.org/conference/usenixsecurity24/call-for-artifacts#evaluation-information).
+
+<p align="center">   
+  <img src="./figs/usenixbadges-available.png"/>   
+  <img src="./figs/usenixbadges-functional.png"/>  
+</p>
 
 # Cite `ResolverFuzz`
 
@@ -144,6 +151,7 @@ See [README.md](./data_process/README.md) for instructions.
 - [Pre-published paper](https://www.usenix.org/system/files/sec23winter-prepub-246-zhang-qifan.pdf)
 - [Extended version](https://arxiv.org/pdf/2310.03202)
 - [Poster](https://qifanz.com/posters/ndss24-poster-ResolverFuzz.pdf) presented on NDSS 2024
+- [Artifact Appendix](./docs/ResolverFuzz_AE.pdf)
 
 # License
 
