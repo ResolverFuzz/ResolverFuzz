@@ -17,10 +17,6 @@ import string
 from enum import Enum
 from typing import List
 
-# domain_forward_only = "fwd-only1.xuesongb.com."
-# domain_forward_fallback = "fwd-fb1.xuesongb.com."
-# domain_recursive = "rec1.xuesongb.com."
-
 domain_forward_only = "test0-fwd-only.qifanzhang.com."
 domain_forward_fallback = "test0-fwd-fallback.qifanzhang.com."
 domain_recursive = "test0-recursive.qifanzhang.com."

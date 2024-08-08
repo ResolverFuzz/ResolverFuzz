@@ -18,8 +18,6 @@ ignore_domains = {'powerdns.com.', 'pdns-public-ns1.powerdns.com.',
                   'l.gtld-servers.net.', 'i.root-servers.net.', '.'}
 
 ignore_domains_mode_specific = {}
-# ignore_domains_mode_specific['forward_fallback'] = {'ns1.xuesongb.com.', 'xuesongb.com.', 'chad.ns.cloudflare.com.', 'fwd-fb1.xuesongb.com.', 'nia.ns.cloudflare.com.', 'ns.cloudflare.com.', 'cloudflare.com.'}
-# ignore_domains_mode_specific['recursive'] = {'ns1.xuesongb.com.', 'xuesongb.com.', 'chad.ns.cloudflare.com.', 'rec1.xuesongb.com.', 'nia.ns.cloudflare.com.', 'ns.cloudflare.com.', 'cloudflare.com.'}
 
 
 # ignore_types = {'DS', 'RRSIG', 'NSEC3', 'NSEC'}

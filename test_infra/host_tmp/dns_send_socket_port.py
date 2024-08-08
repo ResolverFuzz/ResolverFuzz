@@ -13,8 +13,7 @@ from scapy.layers.inet import IP, UDP
 from scapy.packet import Raw
 from scapy.sendrecv import send, sr, sr1
 
-src_ip = '172.20.10.1' # test ip
-# src_ip = '172.17.0.6' # example ip
+src_ip = '172.20.10.1' # example ip
 
 def send_dns_query(src_ip, src_port, dst_ip, dst_port, payload_hex_str):
 	dns_query = Raw(binascii.a2b_hex(payload_hex_str))
@@ -41,7 +40,6 @@ src_ip = sys.argv[2]
 src_port = int(sys.argv[3])
 dns_ip = sys.argv[4]
 
-# dns_payload_hex_str = "000001000001000000000000046d6372680474787a62036170700000010001"
 dns_payload_hex_str = dns_payload
 
 send_dns_query(src_ip, src_port, dns_ip, 53, dns_payload_hex_str)

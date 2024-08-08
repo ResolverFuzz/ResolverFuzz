@@ -93,7 +93,6 @@ def filter_r2(caches):
     sw_list = ['bind', 'unbound']
     count = 0
     target_domain = {'merlin.ns.cloudflare.com.', 'stephane.ns.cloudflare.com.', 'nia.ns.cloudflare.com.', 'chad.ns.cloudflare.com.'}
-    # target_domain = {'cloudflare.com.'}
     for cache in caches:
         flag = False
         target = cache.res
