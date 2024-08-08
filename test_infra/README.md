@@ -26,6 +26,8 @@ which python
 The scripts could be easily run without any arguments:
 
 ```bash
+# This command has to be executed in `test_infra` folder. If you are at the root directory of the repo, use the following command to switch:
+#   cd ./test_infra
 sudo /path/to/resolverfuzz/bin/python main_[cdns, cdns_fallback, fwd_global, recursive].py 
 ```
 

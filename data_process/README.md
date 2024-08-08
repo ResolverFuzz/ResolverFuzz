@@ -8,6 +8,9 @@ All the seeds tested, along with the responses from the resolvers, are stored in
 # Activate conda environment
 conda activate resolverfuzz
 
+# Switch to the data_process folder if not
+cd data_process
+
 # Parse all queries
 python parser_query.py --res_folder /path/to/results
 
